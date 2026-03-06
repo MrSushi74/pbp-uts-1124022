@@ -5,7 +5,7 @@ export type book = {
     tahun: number,
     kategori: string,
     status: string,
-    peminjam: number,
+    peminjam: string,
     imageUrl: string,
     createdAt: string,
     updatedAt: string
