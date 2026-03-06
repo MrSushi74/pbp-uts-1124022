@@ -12,10 +12,12 @@ export function useEditBook(){
                     "content-type": "application/json"
                 },
                 body: JSON.stringify({
-                    judul : payload.judul,
-                    deskripsi : payload.deskripsi,
-                    tahun : payload.tahun,
-                    kategori : payload.kategori
+                    data:{
+                        judul : payload.judul,
+                        deskripsi : payload.deskripsi,
+                        tahun : payload.tahun,
+                        kategori : payload.kategori
+                    } 
                 }),
             })
 

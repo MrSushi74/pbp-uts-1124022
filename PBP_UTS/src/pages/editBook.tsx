@@ -13,7 +13,6 @@ export default function editBook(){
      const navigate = useNavigate();
     const { id } = useParams();
     const editBook = useEditBook();
-    const [showAlert, setShowAlert] = useState(false);
 
     useEffect(()=>{
         const thisBook = bookList.find(book => book.id === id);
@@ -23,7 +22,7 @@ export default function editBook(){
         setDeskripsi(thisBook.deskripsi ?? "");
         setTahun(thisBook.tahun ?? 0);
         setKategori(thisBook.kategori ?? "");
-    })
+    },[])
 
     const edit = async () => {
         if (!id || !judul || !deskripsi || !tahun || !kategori) {
@@ -31,7 +30,7 @@ export default function editBook(){
         }
 
         if (await editBook({id, judul, deskripsi, tahun, kategori})) {
-                navigate("/menu/" + id);
+                navigate("/books/" + id);
         }
     }
 
