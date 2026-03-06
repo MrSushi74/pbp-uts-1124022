@@ -19,6 +19,9 @@ export type EditBookPayload = {
     kategori: string
 }
 
+export type AddPeminjamPayload = {
+    peminjam : string,
+}
 
 
 export type AsyncDataState = 'pending' | 'error' | 'loading' | 'fulfilled';

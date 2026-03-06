@@ -1,20 +1,20 @@
-
+import { useBook } from "./useBook";
+import { useCallback } from "react";
+import type { AddPeminjamPayload } from "../types";
 
 export function useAddPeminjam(){
     
     return useCallback(async (payload: AddPeminjamPayload) => {
-        const response = await fetch("http://localhost:5173/api/create-menu", {
+        const {reload} = useBook();
+        const response = await fetch("http://localhost:5173/api/", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                nama: payload.nama,
-                deskripsi: payload.deskripsi,
-                harga: payload.harga, 
-                size: payload.size,
-                label: payload.label,
-                kategori: payload.kategori
+                data:{
+                    peminjam : payload.peminjam,
+                }
             }),
         })
 
@@ -25,5 +25,5 @@ export function useAddPeminjam(){
         }
         reload();
         return true;
-    }, [reload])
+    }, [])
 }
